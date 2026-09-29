@@ -65,3 +65,13 @@ textarea::placeholder,input::placeholder{color:#687083}
 .sheetActions{display:flex;gap:8px;margin-top:12px}.sheetActions .btn{flex:1}
 .settingsRow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.settingsRow:last-child{border-bottom:0}.settingsRow b{font-size:11px}.settingsRow small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
 .toast{position:fixed;z-index:80;top:18px;left:50%;transform:translate(-50%,-8px);opacity:0;background:#1a1e2a;border:1px solid #30364a;color:#fff;padding:9px 13px;border-radius:999px;font-size:10px;transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+.brandLogo{
+  width:48px;height:48px;flex:0 0 auto;border-radius:16px;
+  display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 45%,rgba(37,115,255,.18),rgba(8,12,21,.82) 72%);
+  box-shadow:0 0 0 1px rgba(83,155,255,.12),0 0 30px rgba(58,140,255,.18);
+  overflow:hidden
+}
+.brandLogo svg{width:44px;height:44px;display:block}
+.brand>b,.brand b{letter-spacing:-.02em}
+@media(max-width:380px){.brandLogo{width:44px;height:44px}.brandLogo svg{width:40px;height:40px}}
