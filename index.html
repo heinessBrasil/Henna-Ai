@@ -4,14 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#08090d">
-<title>Henna Mind</title>
+<title>Henna AI — Segundo Cérebro</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23070a12' stroke='%234da6ff' stroke-width='3'/%3E%3Cpath d='M19 16v32M45 16v32M19 32h26' stroke='%238fd4ff' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="toast" id="toast">Pronto</div>
 <div class="app">
   <header class="top">
-    <div class="brand"><div class="orb"></div><div><b>Henna Mind</b><div class="sub" id="brandSub">seu segundo cérebro</div></div></div>
+    <div class="brand"><div class="brandLogo" aria-label="Henna AI">
+  <svg viewBox="0 0 120 120" role="img" aria-hidden="true">
+    <defs>
+      <linearGradient id="hGlow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset=".28" stop-color="#9fdcff"/>
+        <stop offset=".62" stop-color="#4d9dff"/>
+        <stop offset="1" stop-color="#7563ff"/>
+      </linearGradient>
+      <radialGradient id="coreGlow" cx=".5" cy=".45" r=".7">
+        <stop offset="0" stop-color="#183f77"/>
+        <stop offset=".7" stop-color="#09111f"/>
+        <stop offset="1" stop-color="#05070d"/>
+      </radialGradient>
+      <filter id="blueGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <circle cx="60" cy="60" r="44" fill="url(#coreGlow)" stroke="#2688ff" stroke-width="2"/>
+    <circle cx="60" cy="60" r="49" fill="none" stroke="#1b61d6" stroke-width="1" opacity=".55" stroke-dasharray="8 7"/>
+    <path d="M36 30v60M84 30v60M36 60h48" fill="none" stroke="url(#hGlow)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" filter="url(#blueGlow)"/>
+    <ellipse cx="60" cy="60" rx="57" ry="22" fill="none" stroke="#71c8ff" stroke-width="3" transform="rotate(-12 60 60)" filter="url(#blueGlow)"/>
+    <circle cx="105" cy="49" r="3.5" fill="#d9f4ff" filter="url(#blueGlow)"/>
+  </svg>
+</div><div><b>Henna AI</b><div class="sub" id="brandSub">seu segundo cérebro</div></div></div>
     <button class="icon" id="settingsBtn">⚙</button>
   </header>
 
