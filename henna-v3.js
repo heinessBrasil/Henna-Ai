@@ -227,6 +227,7 @@ function saveReminderFromModal(){
   var when=Date.parse($('reminderWhen').value);
   if(!title||!when){showToast('Preencha o lembrete e o horário');return}
   st.reminders.push({id:'r-'+Date.now()+'-'+Math.floor(Math.random()*9999),title:title,at:when,fired:false});
+  try{if('Notification' in window&&Notification.permission==='default')Notification.requestPermission()}catch(e){}
   $('reminderTitle').value='';
   $('reminderModal').className='modal';
   persist();showToast('⏰ Lembrete criado')
@@ -274,7 +275,8 @@ function checkReminders(){
   var now=Date.now(),changed=false;
   st.reminders.forEach(function(r){if(!r.fired&&r.at<=now){fireReminder(r);changed=true}});
   if(changed)persist();
-  if(st.wellbeing.lastWaterAt&&now-st.wellbeing.lastWaterAt>=5400000){
+  var waterBase=st.wellbeing.lastWaterAt||st.wellbeing.sessionStartedAt||now;
+  if(now-waterBase>=3600000){
     if(!st.wellbeing.lastWaterReminder||now-st.wellbeing.lastWaterReminder>=5400000){
       st.wellbeing.lastWaterReminder=now;persist();
       showToast('💧 Que tal beber um pouco de água?');
@@ -307,6 +309,8 @@ function proactiveCheckin(){
 }
 
 function boot(){
+  if(!st.wellbeing.sessionStartedAt||Date.now()-st.wellbeing.sessionStartedAt>21600000)st.wellbeing.sessionStartedAt=Date.now();
+  persist();
   injectPresence();
   injectCare();
   installChat();
